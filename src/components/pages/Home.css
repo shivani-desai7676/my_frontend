@@ -1,0 +1,79 @@
+.home{
+  font-family: Arial, sans-serif;
+}
+
+
+
+
+.hero{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:80px 10%;
+  background:#f7f9fc;
+}
+
+.hero-left{
+  max-width:500px;
+}
+
+.hero-left h1{
+  font-size:48px;
+  color:#1f2937;
+}
+
+.hero-left p{
+  margin:20px 0;
+  font-size:18px;
+  color:#555;
+}
+
+.hero-left button{
+  padding:15px 40px;
+  border:none;
+  border-radius:30px;
+  background:#f4a300;
+  color:white;
+  font-size:16px;
+  cursor:pointer;
+}
+
+.hero-right img{
+  width:400px;
+}
+
+
+
+/* ABOUT SECTION */
+
+.about{
+  padding:100px 10%;
+  text-align:center;
+  background:white;
+}
+
+.about h2{
+  font-size:36px;
+  margin-bottom:20px;
+}
+
+.about p{
+  max-width:700px;
+  margin:auto;
+  color:#555;
+  font-size:18px;
+}
+
+.about-features{
+  display:flex;
+  justify-content:center;
+  gap:40px;
+  margin-top:50px;
+}
+
+.feature{
+  width:250px;
+  padding:20px;
+  border-radius:10px;
+  background:#f7f9fc;
+}
