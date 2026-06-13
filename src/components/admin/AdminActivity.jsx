@@ -9,28 +9,31 @@ export default function AdminActivity({ type }) {
   const [suggestions, setSuggestions] = useState([]);
 
   useEffect(() => {
+
+    const fetchData = async () => {
+
+      try {
+
+        const url =
+          type === "history"
+            ? `${API_URL}/api/admin/activity/history`
+            : `${API_URL}/api/admin/activity/status`;
+
+        const res = await axios.get(url);
+
+        setData(res.data);
+
+      } catch (err) {
+
+        console.error("Error fetching activity:", err);
+
+      }
+
+    };
+
     fetchData();
+
   }, [type]);
-
-  const fetchData = async () => {
-
-    try {
-
-      const url =
-        type === "history"
-          ? `${API_URL}/api/admin/activity/history`
-          : `${API_URL}/api/admin/activity/status`;
-
-      const res = await axios.get(url);
-
-      setData(res.data);
-
-    } catch (err) {
-      console.error("Error fetching activity:", err);
-    }
-
-  };
-
 
   const searchUsers = async (value) => {
 
@@ -50,12 +53,13 @@ export default function AdminActivity({ type }) {
       setSuggestions(res.data);
 
     } catch (err) {
+
       console.error("Search error:", err);
+
     }
 
   };
 
-  // FILTER DATA AFTER SELECTING USER
   const filteredData = search
     ? data.filter((item) =>
         item.email.toLowerCase().includes(search.toLowerCase())
@@ -65,7 +69,6 @@ export default function AdminActivity({ type }) {
   return (
     <div>
 
-      {/* SEARCH BAR */}
       <div style={{ marginBottom: "20px", position: "relative" }}>
 
         <input
@@ -81,7 +84,6 @@ export default function AdminActivity({ type }) {
           }}
         />
 
-        {/* SUGGESTIONS */}
         {suggestions.length > 0 && (
           <div
             style={{
@@ -121,11 +123,14 @@ export default function AdminActivity({ type }) {
 
       </div>
 
-      {/* TABLE */}
-
       {filteredData.length === 0 ? (
-        <p style={{ textAlign: "center" }}>No activity found</p>
+
+        <p style={{ textAlign: "center" }}>
+          No activity found
+        </p>
+
       ) : (
+
         <table style={table}>
 
           <thead>
@@ -158,7 +163,6 @@ export default function AdminActivity({ type }) {
                 )}
 
                 {type === "status" && (
-
                   <td>
                     <span
                       style={{
@@ -169,7 +173,6 @@ export default function AdminActivity({ type }) {
                       {item.isOnline ? "● Online" : "● Offline"}
                     </span>
                   </td>
-
                 )}
 
               </tr>
@@ -179,6 +182,7 @@ export default function AdminActivity({ type }) {
           </tbody>
 
         </table>
+
       )}
 
     </div>
