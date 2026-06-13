@@ -9,7 +9,6 @@ import VerifyOtp from "./components/VerifyOtp";
 import Login from "./components/Login";
 import LoginOtp from "./components/LoginOtp";
 import Dashboard from "./components/Dashboard";
-import UserActivity from "./components/UserActivity";
 import AdminUserLinks from "./components/admin/AdminUserLinks";
 import About from "./components/About";
 import Navbar from "./components/Navbar";
@@ -23,7 +22,7 @@ function App() {
 
   const [step, setStep] = useState("splash");
   const [email, setEmail] = useState("");
-  const [token, setToken] = useState(localStorage.getItem("token") || "");
+  const [, setToken] = useState(localStorage.getItem("token") || "");
   const [adminEmail, setAdminEmail] = useState(localStorage.getItem("admin") || "");
 
   /* SPLASH SCREEN */

@@ -26,7 +26,12 @@ export default function Hero({ children, goToLogin, goToRegister, goToAdmin, set
 
         <nav className="nav">
 
-          <a href="#">Home</a>
+          <button
+            className="nav-link"
+            onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+          >
+            Home
+          </button>
 
           <a
             href="#about"
@@ -147,7 +152,7 @@ export default function Hero({ children, goToLogin, goToRegister, goToAdmin, set
       </section>
 
 
-            {showFeedback && <FeedbackModal closeModal={() => setShowFeedback(false)} />}
+      {showFeedback && <FeedbackModal closeModal={() => setShowFeedback(false)} />}
 
 
     </>

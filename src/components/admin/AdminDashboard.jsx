@@ -4,7 +4,6 @@ import AdminFiles from "./AdminFiles";
 import AdminActivity from "./AdminActivity";
 import AdminUserLinks from "./AdminUserLinks";
 import AdminFeedback from "./AdminFeedback";
-import API_URL from "../../config";
 export default function AdminDashboard({ setStep }) {
 
   const [section, setSection] = useState("profile");

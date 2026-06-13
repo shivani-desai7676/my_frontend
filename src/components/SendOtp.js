@@ -12,7 +12,7 @@ function SendOtp({ onNext, goToLogin }) {
 
     try {
       const res = await axios.post(
-        "${API_URL}/api/auth/send-otp",
+        `${API_URL}/api/auth/send-otp`,
         {
           name,
           email
