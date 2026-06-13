@@ -11,7 +11,7 @@ function SendOtp({ onNext, goToLogin }) {
     e.preventDefault();
 
     try {
-      const res = await axios.post(
+       await axios.post(
         `${API_URL}/api/auth/send-otp`,
         {
           name,
